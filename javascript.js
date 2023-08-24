@@ -35,4 +35,27 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-console.log(playRound())
+function game() {
+    let player = 0
+    let computer = 0
+    for (let i = 1; i <= 5; i++) {
+        let round = playRound()
+        if (round === "You win! Rock beats Scissors." || "You win! Paper beats Rock." || "You win! Scissors beat Paper.") {
+            player++;
+        }
+        else if (round === "You lose! Paper beats Rock." || "You lose! Scissors beat Paper." || "You lose! Rock beats Scissors.") {
+            computer++;
+        }
+    }
+    if (player > computer) {
+        return "You've won the game!"
+    }
+    else if (player === computer) {
+        return "You've tied the game!"
+    }
+    else {
+        return "You've lost the game!"
+    }
+}
+
+console.log(game())
